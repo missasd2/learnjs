@@ -1,0 +1,119 @@
+/* 元素选择器 */
+/* 具有class="dataintable" 的 <table> 元素的  th元素*/
+table.dataintable th{
+    vertical-align: baseline;
+    padding: 10px 10px 10px 10px;
+    background-color: #3F3F3F;
+    border: 1px solid #3F3F3F;
+    text-align: left;
+    color: #fff;
+}
+
+/* 元素选择器 */
+th {
+    display: table-cell;
+    font-weight: bold;
+}
+
+table {
+    text-indent: initial;
+    border-spacing: 2px;
+}
+
+body {
+    font-family: "SF Pro SC","SF Pro Text","SF Pro Icons","PingFang SC", Verdana, Arial, '微软雅黑','宋体';
+    font-size: 14px;
+}
+
+div#maincontent div.css-100 {
+    width: 100%;
+    line-height: 80px;
+    text-align: center;
+    color: white;
+    border: 10px solid;
+    box-sizing: border-box;
+    font-size:120%;
+    font-weight:bold;
+    font-family:Consolas, 'Courier New', Courier, monospace;
+    }
+    
+    div#maincontent div.css-50 {
+    float: left;
+    width: 50%;
+    line-height: 80px;
+    text-align: center;
+    color: white;
+    border: 10px solid #fdfcf8;
+    box-sizing: border-box;
+    font-size:120%;
+    font-weight:bold;
+    font-family:Consolas, 'Courier New', Courier, monospace;
+    }
+    
+    div#maincontent div.css-25 {
+    float: left;
+    width: 25%;
+    padding:50px;
+    margin: 20px 0;
+    text-align: center;
+    box-sizing: border-box;
+    font-size:100%;
+    font-weight:bold;
+    font-family:Consolas, 'Courier New', Courier, monospace;
+    }
+    
+    div#maincontent div.w3-50 {
+    float: left;
+    width: 50%;
+    line-height: 120px;
+    text-align: center;
+    color: black;
+    border: 0px solid #fdfcf8;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    }
+    
+    div#maincontent div.w3-33 {
+    float: left;
+    width: 33.33%;
+    text-align: center;
+    color: black;
+    border: 0px solid #fdfcf8;
+    box-sizing: border-box;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    }
+
+    .css-border {
+        border:3px solid #ba3537;
+        }
+        
+        div#maincontent div.p100 {
+        width: 100%;
+        box-sizing: border-box;
+        }
+        
+        div#maincontent div.p50 {
+        width: 50%;
+        box-sizing: border-box;
+        float: left;
+        }
+        
+        div#maincontent div.p33 {
+        width: 33%;
+        box-sizing: border-box;
+        float: left;
+        }
+        
+        div#maincontent div.p25 {
+        width: 25%;
+        box-sizing: border-box;
+        float: left;
+        }
+        
+        div#maincontent img.img-center {
+        display: block;
+        margin: 15px auto 0 auto;
+        }
+        

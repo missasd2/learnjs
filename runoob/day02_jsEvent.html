@@ -4,9 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
     <title>js事件</title>
 </head>
 <body>
+
+    <div id="maincontent">
+        <div>
+            <h3>JS事件</h3>
+            <p> HTML事件：发生在HTML元素上的事件</p>
+            <p>在HTML页面使用js时，js可以触发这些事件</p>
+    
+            <div>
+                <h4>HTML事件的实例</h4>
+                <ul>
+                    <li>HTML 页面加载完成</li>
+                    <li>HTML input字段改变时</li>
+                    <li>HTML 按钮被点击</li>
+                </ul>
+            </div>
+        </div>
+    
+        <div>
+            <p>时间是：<a id="demo1"></a></p>
+            <!-- 为id为demo1的button元素，添加了onclick这一事件属性 -->
+            <button type="button" onclick="getElementById('demo1').innerHTML=Date()">现在的时间是？</button>
+            <button type="button" onclick="getElementById('demo1').innerHTML=''">重置</button>
+        </div>
+    
+        <div>
+            <h3>常见的HTML事件</h3>
+            <table class="dataintable">
+                <tbody>
+                    <tr> <th>事件</th> <th>描述</th> </tr>
+                    <tr> <td>onchange</td>  <td>HTML 元素该表</td>  </tr>
+                    <tr> <td>onclick</td> <td>用户点击HTML 元素</td> </tr>
+                    <tr> <td>onmouseover</td> <td>用户在一个HTML元素上移动鼠标</td></tr>
+                    <tr> <td>onmouseout</td> <td>用户在一个HTML元素上移开鼠标</td></tr>
+                    <tr> <td>onkeydown</td> <td>用户按下键盘鼠标</td></tr>
+                    <tr> <td>onload</td> <td>浏览器已经完成页面的加载</td></tr>
+                </tbody>
+            </table>
+    
+        </div>
+    </div>
     
 </body>
 </html>

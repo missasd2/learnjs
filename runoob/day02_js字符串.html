@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js字符串</title>
+    <script>
+
+        // 字符串定义可使用 单引号 或 双引号
+        var carname = "Volvo xc60";
+        var carnames = "Volvo xc600";
+
+        // 字符串中的字符索引从0开始
+        var character = carname[7];
+
+        // 使用反斜杠 进行 引号的转义
+        var x = "It\'s alright";
+        console.log(x);
+
+        // 字符串具有内置属性length
+        console.log(x.length);
+
+        // 字符串可以是原始值，也可以是对象; 不要创建String对象，会有副作用
+        var z = "John";
+        var y = new String("John");   
+        console.log(y);
+        console.log(z);
+        console.log(y == z);  // 返回值为true；将String这一高级类型转化为基础类型，进行“值”比较
+    </script>
+</head>
+<body>
+    <div>
+        <div>
+            JavaScript == 与 === 区别
+            1、对于 string、number 等基础类型，== 和 === 是有区别的
+
+                a）不同类型间比较，== 之比较 "转化成同一类型后的值" 看 "值" 是否相等，=== 如果类型不同，其结果就是不等。
+                b）同类型比较，直接进行 "值" 比较，两者结果一样。
+            2、对于 Array,Object 等高级类型，== 和 === 是没有区别的
+
+            进行 "指针地址" 比较
+
+            3、基础类型与高级类型，== 和 === 是有区别的
+
+                a）对于 ==，将高级转化为基础类型，进行 "值" 比较
+                b）因为类型不同，=== 结果为 false
+            4、!= 为 == 的非运算，!== 为 === 的非运算
+        </div>
+    </div>
+    
+</body>
+</html>
