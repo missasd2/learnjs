@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day01_learnjs</title>
+    <script> 
+        function myFunction(){
+            alert("Hello World");
+        }
+        //    JavaScript 带参数的函数
+        function withParamFunction(param1, param2){
+            console.log(param1 + param2);
+        }
+
+        // 带有返回值的函数
+        function withReturnFunction(param1, param2){
+            
+            return param1 + param2;
+        }
+
+        function render1() {
+            document.getElementById("result1").innerHTML = withReturnFunction(3, 4);
+        }
+
+        // 向未声明的 js变量分配值,该变量将被自动作为window的一个属性
+        // 非严格模式下，给未声明变量赋值创建的全局变量；是全局对象的可配置属性，可以删除。
+
+        var var1 = 1; // 不可配置全局属性
+        var2 = 2; // 没有使用var声明，可配置全局属性
+
+        console.log(this.var1); // 1
+        console.log(window.var1); // 1
+        console.log(window.var2); // 2
+
+        delete var1; // false 无法删除
+        delete var2; // 可删除
+
+        console.log(delete var2); // true
+        console.log(var2); // 已经删除，报错；变量未定义
+
+    </script>
+</head>
+<body>
+
+    <button type="button" onclick="myFunction()">点击</button>
+    
+    <div>
+        <p>JavaScript 带参数的函数</p>
+        <button type="button" onclick="withParamFunction(1, 2)">点击带参数函数</button>
+        <p>结果为：<a id="result1"></a></p>
+        
+        
+    </div>
+
+    <div>
+        <p>带有返回值的函数</p>
+        <button type="button" onclick="render1()">点击生成值</button>
+    </div>
+
+    <div>(3) 局部JavaScript变量
+        <p>在js函数内部声明的变量（使用var）是局部变量，所以只能在函数内部访问它</p>
+
+    </div>
+
+    <div>
+        (4) 全局js变量
+        <p>在函数外部声明的变量是全局变量，网页上的所有脚本和函数都能访问它</p>
+    </div>
+
+    <div>
+        (5)js变量的生命周期
+        <p>局部变量会在函数运行以后被删除</p>
+        <p>全局变量在页面关闭后被删除</p>
+    </div>
+</body>
+</html>
