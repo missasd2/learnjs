@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js中的this关键字</title>
+
+
+</head>
+<body>
+
+    <div>
+        <h2>JavaScript中的this关键字</h2>
+
+        <hr/>
+
+        <div>
+            <h3>method中的this</h3>
+            <p>实例中, <b>this</b> 指向了 <b>person</b> 对象。</p>
+            <p>因为 person 对象是 fullName 方法的所有者.</p>
+
+            <p id="demo1"></p>
+        </div>
+
+        <hr/>
+
+        <div>
+            <h3>单独的this</h3>
+            <p>实例中, <b>this</b> 指向了 <b> window </b>对象。</p>
+            <p>严格模式下，单独使用的this，也指向的是全局对象</p>
+            <p id = "demo2"></p>
+        </div>
+
+        <hr/>
+
+        <div>
+            <h3>函数中使用this, 非严格模式</h3>
+            <p>实例中, <b>this</b>表示 myFunction1 的所有者：</p>
+            <p id="demo3"></p>
+        </div>
+        <hr/>
+
+        <div>
+            <h3>函数中使用this，严格模式</h3>
+            <p>函数中，默认情况下，<b>this</b> 指向全局对象</p>
+            <p>严格模式下， <b>this</b> 为 <b>undefined</b>, 因为严格模式下不允许默认绑定</p>
+
+            <p id="demo4"></p>
+        </div>
+        <hr/>
+
+        <div>
+            <h3>事件中this</h3>
+            <p>事件中，<b>this</b>指向了接收事件的元素</p>
+            <button type="button" onclick="this.style.display='none'">点我后我就消失了</button>
+        </div>
+        <hr/>
+
+        <div>
+            <h3>对象方法中绑定</h3>
+            <p>在实例中, <b>this</b> 指向了 fullName 方法所属的对象 person</p>
+            <p id="demo5"></p>
+        </div>
+        <hr/>
+
+        <div>
+            <h3>显示函数绑定</h3>
+            <p>实例中, <strong>this</strong> 指向了 person2, 即便它是 person1 的方法: </p>
+            <p id="demo6"></p>
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        
+
+        function testThisinMethod() {
+            var person = {
+                firstName: "John",
+                lastName: "Doe",
+                id : 5566,
+                fullName: function() {  // method中的this指代的是method所属的对象
+                    return this.firstName + " " + this.lastName;
+                }
+            };
+            document.getElementById("demo1").innerHTML = person.fullName();
+        }
+
+        testThisinMethod();
+
+        var x = this;
+
+        function testThisinStandalond() {
+            document.getElementById("demo2").innerHTML = x;
+
+        }
+
+        testThisinStandalond();
+
+        // this 在函数中使用，非严格模式
+        function testThisinFunction() {
+            document.getElementById("demo3").innerHTML = myFunction1();
+        }
+
+        function myFunction1() {
+            return this;  // 在函数中的this，非严格模式下，返回的是 函数的所有者
+        }
+
+        // this 在函数中使用，严格模式
+        function testThisinFunctionStrict() {
+            
+            document.getElementById("demo4").innerHTML = myFunction2();
+        }
+
+        function myFunction2(){
+            "use strict";
+            return this;
+        }
+
+        testThisinFunctionStrict();
+
+
+        // this 在事件中
+            // 指向了接收事件的HTML元素
+
+        
+        // 对象方法中绑定; 指向了fullName 方法所属的对象person
+        function testThisisObjectMethod() {
+            var person = {
+                firstName : "John",
+                lastName : "Doe",
+                id : 5566,
+                myFunction : function() {
+                    return this;
+                }
+            };
+            document.getElementById("demo5").innerHTML = person.myFunction();
+        }
+
+        testThisisObjectMethod();
+
+        // 显式方法绑定; 实际中this指向了 person2，即便它是 perosn1 的方法；
+        function testImplicitMethodBind() {
+            var person1 = {
+                fullName: function() {
+                    return this.firstName + " " + this.lastName;
+                }
+            }
+
+            var person2 = {
+                firstName: "John",
+                lastName: "Doe",
+            }
+            var x = person1.fullName.call(person2); // 返回 "John Doe"
+            document.getElementById("demo6").innerHTML = x;
+        }
+
+        // 显式函数绑定
+
+        
+
+
+        
+
+    </script>
+    
+</body>
+</html>

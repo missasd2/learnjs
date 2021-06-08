@@ -36,13 +36,43 @@
 
     }
 
+    // js 表单验证- 必填项
+    function testRequired() {
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == null || x == "") {
+            alert("姓必须填写");
+            return false;
+        }
+    }
+
+    // js 表单验证-邮件
+    function testEmail() {
+        var x = document.forms["myForm1"]["emails"].value;
+        var atpos = x.indexOf("@");
+        var dotpos = x.lastIndexOf(".");
+        if (atpos < 1 || dotpos < atpos + 2 || dotpos+2 >= x.length) {
+            alert("这不是一个有效的E-mail地址");
+            return false;
+        }
+    }
+
+    // 约束验证 DOM方法
+    function validateDOMFunc() {
+        var inpObj = document.getElementById("id1");
+        if (inpObj.checkValidity() == false) {
+            document.getElementById("demo2").innerHTML = inpObj.validationMessage;
+        } else {
+            document.getElementById("demo2").innerHTML = "数字正确";
+        }
+    }
+
     </script>
 </head>
 <body>
 
     <div>
         <form name="myForm"  onsubmit="return validateForm()" method="post">
-            名字: <input type="text" name="fname">
+            名字: <input type="text" name="fnames">
             <input type="submit" value="提交">
         </form>
     </div>
@@ -58,6 +88,34 @@
         <button type="button" onclick="testValidateForm()">提交</button>
         <p id="demo1"></p>
     </div>
+
+    <!-- 验证表单的必填项目 -->
+    <div>
+        <form name="myForm" onsubmit="testRequired()">
+            姓: <input type="text" name="fname">
+            <input type="submit" vlaue="提交">
+        </form>
+    </div>
+
+    <!-- 验证表单的E-mail -->
+    <div>
+        <form name="myForm1" onsubmit="testEmail()">
+            邮件: <input type="text" name="emails">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+
+    <div>
+        <p>输入数字并点击验证按钮: </p>
+
+        <input id="id1" type="number" min="100" max="300" required>
+        <button onclick="validateDOMFunc()">验证</button>
+
+        <p> 如果输入的数字小于100 或大于300，会提示错误信息</p>
+
+        <p id="demo2"></p>
+    </div>
+    
     
 </body>
 </html>
