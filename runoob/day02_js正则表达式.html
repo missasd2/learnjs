@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js正则表达式</title>
+
+    <script>
+
+        function testRegex1() {
+            // 正则表达式主题/修饰符（可选）
+            var str = "Visit Runoob! ";
+            // search()方法：
+            //        返回值为：匹配到字串的首索引
+            var n = str.search(/Runoob/i); // 修饰符i表示 不区分大小写
+            var n1 = str.search("Runoob"); // 使用字符串形式
+            console.log(n);
+            console.log(n1);
+            
+            
+        }
+        testRegex1();
+
+        function testRegex2(){
+            // var m = str.reaplace(/Runoob/i, "Hello")
+            var m1 = document.getElementById("demo1").innerHTML;
+            var m2 = m1.replace(/Runoob/i, "Hello");
+            document.getElementById("demo1").innerHTML = m2;
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        <div>
+            <p id="demo1">替换目标：Runoob, World</p>
+            <button type="button" onclick="testRegex2()">点击替换</button>
+        </div>
+    </div>
+    
+</body>
+</html>

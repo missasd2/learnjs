@@ -121,12 +121,211 @@
         iterateFunction4();
 
         // break 和 continue语句
+        function iterateFunction5() {
+            for(var i = 0; i < 10; i++) {
+                if(i == 3) {
+                    continue;
+                }
+                console.log("i is :" + i);
+            }
+        }
+
+        iterateFunction5();
+
+        // js 标记
+        function iterateFunction6() {
+            var cars = ["BMW", "Volvo", "Saab", "Ford"];
+            list:
+            {
+                document.write(cars[0] + "<br>");
+                document.write(cars[1] + "<br>");
+                document.write(cars[2] + "<br>");
+
+                break list;
+                document.write(cars[3] + "<br>");
+                document.write(cars[4] + "<br>");
+                document.write(cars[5] + "<br>");
+
+            }
+        }
+
+        iterateFunction6();
+
+        // js typeof； 检测变量的数据类型
+        function theTypeOf() {
+            console.log("\n");
+            console.log(typeof "John"); // string
+            console.log(typeof 3.14); // number
+            console.log(typeof false); // boolean
+            console.log(typeof [1, 2, 3, 4]); // object； 数组是一种特殊的对象类型
+            console.log(typeof [1, 2, 3, 4]); // object
+            console.log(typeof {name: 'John', age: 34});        // object
+
+            var person = null; 
+            console.log(typeof person); // object; 值为null（空），但类型为对象
+            
+            var pep = undefined;
+            console.log(person + typeof pep); //  值为null，类型为undefined；任何变量可通过设置为undefined来清空。
+
+            // null 和 undefined
+            // 值相等，但类型不等一个是 object，一个是undefined
+            console.log(person == pep); // true
+            console.log(person === pep); // false
+            console.log(typeof iterateFunction2); // function
+        } 
+          
+        theTypeOf();
+
+        /* // js 类型转换
+        /**
+         * JavaScript 共有6中不同的数据类型
+         *  string
+         *  number
+         *  boolean
+         *  object
+         *  function
+         *  symbol
+         * 
+         * 共有3中对象类型
+         *  Object
+         *  Date
+         *  Array
+         * 
+         * 共有2个不含任何值的数据类型
+         *  null
+         *  undefined
+         * 
+         * 
+         * / */
+
+         // typeof 操作符；查看js 变量的数据类型
+         function theTypeOf1() {
+             console.log("\n");
+             console.log(typeof "John"); // string
+             console.log(typeof 3.14); // number
+
+             console.log(typeof NaN); // number
+             console.log(typeof false); // boolean
+             console.log(typeof [1, 2, 3, 4]); // object
+             console.log(typeof {name: "John", age: 34}); // object
+             console.log(typeof new Date()); // object
+             console.log(typeof function() {}); // function
+             console.log(typeof myCar); // undefined
+             console.log(typeof null); // object
+         }
+         theTypeOf1();
+
+         // constructor 属性
+         //     返回所有js  变量的构造函数
+
+         function theConstructor() {
+             console.log("\n" );
+             console.log("John".constructor); // f String() { native code}
+             console.log( 3.14.constructor);  // f Number() {native code }
+             console.log( false.constructor); // f Boolean() {native code}
+             console.log( {name: "John", age: 34}.constructor); // f Object() { native code}
+             console.log( new Date().constructor);  // f Date() {native code}
+             console.log( function() {}.constructor); // f Function() {native code}
+         }
+
+         theConstructor();
+
+         // 使用constructor判断对象是否为数组
+         function judeIsArray(myArray) {
+             return myArray.constructor.toString().indexOf("Array") > -1;
+         }
+
+         console.log(judeIsArray([1, 2, 3, 4]));  // true
+
+        // js 类型转换
+        //  js可以转换为新变量和其他数据类型
+        //  使用 js函数 、使用js自身自动转换
+        function convertType() {
+            console.log( "\n");
+            var x = 10;
+            // 1 将数据转换为字符串
+            console.log( String(x));
+            console.log( String(123));
+            console.log( 100 + 23);
+            console.log( (100).toString() );
+            // 2 将布尔值转换为字符串
+            console.log(String(false));
+            console.log(String(true));
+                // Boolean 方法toString()
+            console.log(true.toString());
+            console.log(false.toString());
+
+            // 3 日期转换为字符串
+            console.log("3 将日期转换为字符串");
+            console.log(Date());
+            console.log(String(Date()));
+
+            // 4 将字符串转换为数字
+            console.log(Number(3)); // 3
+            console.log(Number(" ")); // 0 ，空字符串转换为0
+            console.log(Number("")); // 0 
+            console.log(Number(" 9 88")); // 其他的字符串会转换为 NaN
+
+            // 5 一元运算符 +
+            console.log();
+            console.log("5 一元运算符 +");
+            var p = "5"; // p 是一个字符串
+            var r = "John";
+            var m = + p; // m 是一个数字
+            console.log(m); // + 运算符可用于将变量转换为数字
+            var n = + r;  // 如果变量不能转换，它仍然为一个数字，但值为NaN；
+            console.log(n);
+
+            // 6 将布尔值转换为数字
+            console.log( "\n");
+            console.log( "6 将布尔值转换为数字");
+            console.log( Number(false)); // 0
+            console.log( Number(true)); // 1
+
+            // 7 将日期转换为数字
+            console.log( "\n");
+            console.log( "7 将日期转换为数字");
+            console.log(Number(new Date())); // 返回的是从UTC标准时间起点所经过的毫秒数
+
+            // 8 自动转换类型
+            console.log("\n");
+            console.log("8 自动转换类型");
+            console.log(5 + null); // 5
+            console.log("5" + null); "5null"
+            console.log("5" + 1); // "51"
+            console.log("5" - 1); // 4
+
+
+
+            
+
+
+        }
+        convertType();
+
         
+        // 9 自动转换为字符串
+        function testFunction1() {
+
+            var myVar = {name : "Fjohn"};
+            var myVar = [1, 2, 3, 4];
+            document.getElementById("demo1").innerHTML = myVar;
+
+        }
+
 
 
     </script>
 </head>
 <body>
+
+    <div>
+
+        <div>
+            <p id="demo1">此处可能会被改变</p>
+            <button type="button" onclick="testFunction1()">点击改变内容</button>
+        </div>
+    </div>
     
 </body>
 </html>

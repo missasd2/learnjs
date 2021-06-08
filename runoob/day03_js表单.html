@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js表单</title>
+
+    <script>
+    // js 表单验证
+    function validateForm() {
+        var x = document.forms['myForm']["fname"].value;
+        if (x == null || x == "") {
+            console.log("需要输入名字");
+            return false;
+        }
+    }
+
+    function demoForm() {
+        console.log("成功提交");
+    }
+
+    // 对输入数字进行验证
+    function testValidateForm() {
+        var x = document.getElementById("numb").value;
+        var text;
+
+        // 
+        if(isNaN(x) || x > 10 || x < 1) {
+            text = "输入错误";
+        } else{
+            text = "输入正确";
+        }
+
+        document.getElementById("demo1").innerHTML = text;
+
+    }
+
+    </script>
+</head>
+<body>
+
+    <div>
+        <form name="myForm"  onsubmit="return validateForm()" method="post">
+            名字: <input type="text" name="fname">
+            <input type="submit" value="提交">
+        </form>
+    </div>
+
+    <!-- js 进行验证输入 -->
+
+    <div>
+        <h3>JavaScript 验证输入</h3>
+
+        <p>请输入1到10之间的数字</p>
+
+        <input id="numb">
+        <button type="button" onclick="testValidateForm()">提交</button>
+        <p id="demo1"></p>
+    </div>
+    
+</body>
+</html>
