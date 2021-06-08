@@ -7,6 +7,33 @@
     <title>js中的JSON</title>
 </head>
 <body>
+    <div>
+        <div>
+            <h3> 为 JSON 字符串创建对象</h3>
+            <p id="demo1"></p>
+        </div>
+    </div>
+
+    <script>
+
+        function testJson1() {
+            let text1 = '{ "sites": [' +
+            '{ "name": "Runoob", "url": "www.runoob.com"},' +
+            '{ "name": "Google", "url": "www.google.com"},' +
+            '{ "name": "Taobao", "url": "www.taobao.com"} ]}';
+
+            console.log(text1);
+
+            let x = JSON.parse(text1);
+
+            console.log(typeof x);
+            document.getElementById("demo1").innerHTML = x.sites[1].name + " " + x.sites[2].url;
+        }
+
+        testJson1();
+        
+
+    </script>
     
 </body>
 </html>
