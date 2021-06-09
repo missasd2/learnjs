@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js的Promise</title>
+</head>
+<body>
+    
+
+    <script>
+        setTimeout(function() {
+            console.log("First");
+            setTimeout(function(){
+                console.log("Second");
+                setTimeout(function(){
+                    console.log("Third");
+                }, 3000);
+            }, 4000);
+        }, 1000);
+
+        // Promise 的使用
+        new Promise(function (resolve, reject){
+            setTimeout(function(){
+                console.log("First");
+                resolve();
+            }, 1000);
+        }).then(function(){
+            return new Promise(function (resolve, reject){
+                setTimeout(function () {
+                    console.log("Second");
+                    resolve();
+                }, 4000);
+            });
+        }).then(function() {
+            setTimeout(function() {
+                console.log("Third");
+            }, 3000)
+        });
+
+        // Promise类有 .then() .catch() 和 .finally() 三个方法
+        // 这三个方法的参数都是一个参数
+        // .then() 可以将参数中的函数添加到当前 Promise 的正常执行序列
+        // .catch() 则是设定Promise 的异常处理序列
+        // .finally() 是在Promise 执行的最后一定会执行的序列
+        // then 传入的函数会按顺序依次执行，有任何异常都会直接跳到catch序列。
+        new Promise(function (resolve, reject){
+            var a = 0;
+            var b = 1;
+            if (b == 0) reject("Divide zero");
+            else resolve(a / b);
+        }).then(function (value) {
+            console.log("a / b = " + value);
+        }).catch(function (err) {
+            console.log(err);
+        }).finally(function() {
+            console.log("End");
+        });
+        
+        
+    </script>
+</body>
+</html>
