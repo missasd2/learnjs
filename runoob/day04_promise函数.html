@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise函数</title>
+</head>
+<body>
+
+    <script>
+        /*
+        Promise函数：
+                返回值为一个Promise对象的函数；
+                常用于开发基于异步操作的库；
+        */
+
+        function testPrint(delay, message) {
+            return new Promise(function (resolve, reject){
+                setTimeout(function(){
+                    console.log(message);
+                    resolve();
+                }, delay);
+            })
+            ;
+        }
+
+        testPrint(1000, "First").then(function(){
+            return testPrint(4000, "Second");
+        }).then(function(){
+            testPrint(3000, "Third");
+        })
+        ;
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>异步函数(async function)</title>
+</head>
+<body>
+
+    <script>
+        /*
+
+        */
+
+        function testPrint(delay, message) {
+            return new Promise(function (resolve, reject){
+                setTimeout(function() {
+                    console.log(message);
+                    resolve();
+                }, delay);
+            })
+            ;
+        }
+        
+        // 调用
+        /*
+            await 指令后必须跟着一个 Promise；
+                异步函数会在这个 Promise运行中暂停，直到其运行结束再继续运行；
+        */
+        async function asyncFunc() {
+            await testPrint(1000, "First");
+            await testPrint(4000, "Second");
+            await testPrint(3000, "Third");
+        }
+
+        asyncFunc();
+    </script>
+    
+</body>
+</html>

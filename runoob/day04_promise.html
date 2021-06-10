@@ -58,6 +58,38 @@
             console.log("End");
         });
         
+        // Promise 函数只有一个参数，该参数为一个函数；
+        // 这个函数在构造之后会直接被异步执行，所以我们称之为起始函数。
+        // 起始函数包含两个参数 resolve、reject
+        /*
+            resolve 和 reject 都是函数，其中resolve代表一切正常，reject 使出现异常时所调用的；
+        */
+
+        /*
+            Promise类有  .then() .catch .finally() 三个方法，这三个方法的参数都是一个函数；
+                .then() 可以将参数中的函数添加到当前 Promise的正常执行序列；
+                .catch() 则是设定 Promise的异常处理序列
+                .finally() 则在Promise执行的最后一定会执行的序列。
+            .then() 传入的函数会按顺序依次执行，有任何异常都会直接跳到 catch  序列；
+        */
+
+        new Promise(function (resolve, reject) {
+            let a = 0;
+            let b = 1;
+            if(b == 0) reject("Divede zero");
+            else resolve(a / b);
+        }).then(function (value){
+            console.log("a / b = " + value);
+        }).catch(function (err) {
+            console.log(err);
+        }).finally(function() {
+            console.log("End");
+        })
+        
+        ;
+
+        //
+
         
     </script>
 </body>

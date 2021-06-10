@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        // 如果 then中返回的是一个 Promise对象，那么下一个then相当于对这个返回的Promise进行操作。
+        new Promise(function(resolve, reject){
+            console.log(1111);
+            resolve(2222);  // resolve() 中可以放置一个参数，用于向下一个then传递一个值
+        }).then(function(value){
+            console.log(value);
+            return 3333;  // then() 中的函数也可以返回一个值传递给then。
+        }).then(function (value){
+            console.log(vlaue);
+            throw "An error";
+        }).catch(function (err){
+            console.log(err);
+        })
+        
+        ;
+    </script>
+    
+</body>
+</html>
