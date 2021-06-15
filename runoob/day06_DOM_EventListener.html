@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <title>dom EventListener</title>
+</head>
+<body>
+    <div>
+
+        <div>
+            <h2>addEventListener()方法</h2>
+            <p>addEventListener()方法用于向指定元素添加事件句柄</p>
+        </div>
+
+        <div>
+            <h2>语法</h2>
+            <p>element.addEventListener( event, function, useCapture); </p>
+            <p>第一个参数：事件的类型（如“click”或“mousedown”），不要使用on前缀，例如“click”而不是“onclick”</p>
+            <p>第二个参数：事件触发后调用的函数</p>
+            <p>第三个参数：事件触发后十冒泡还是捕获。该参数可选</p>
+        </div>
+
+        <div>
+            <h2>向原元素添加事件句柄</h2>
+            <button id="myBtn1">点我</button>
+            <p>使用函数名，来引用外部函数;</p>
+        </div>
+
+        <div>
+            <h2>向同一个元素中添加多个不同类型事件句柄</h2>
+            <button id="myBtn2">点我</button>
+            <p id="demo2">pending</p>
+            
+        </div>
+
+        <div>
+            <h2>向 Window 对象添加事件句柄</h2>
+            <p>HTML DOM 对象如： HTML元素、HTML文档、window对象。或者其他支持的事件对象如：xmlHttpRequest</p>
+            <p>实例在 window 对象中使用 addEventListener() 方法。</p>
+            <p>尝试重置浏览器的窗口触发 “resize” 事件句柄</p>
+            <p id="demo3"></p>
+        </div>
+
+        <div>
+            <h2>传递参数</h2>
+            <p>当传递参数时，使用“匿名函数”调用带参数的函数</p>
+            <button id="myBtn4">点我</button>
+            <p id="demo4"></p>
+        </div>
+
+        <div>
+            <h2>事件冒泡或事件捕获</h2> 
+            <p>事件传递的方式有两种方式：冒泡与捕获</p>
+            <p>实例演示了在添加不同事件监听时，冒泡与捕获的不同</p>
+            <p>在 “冒泡” 中，内部元素的事件会先被触发，然后再触发外部元素 </p>
+            <p>在 “捕获” 中，外部元素的事件会先被触发，然后再触发内部元素 </p>
+            <p>addEventListener()方法中第三个参数，默认值为false，表示事件传递机制为 “冒泡”</p>
+
+            <div class="mydivstyle" id="myDiv1">
+                <p id="myP1">点击段落, 我是冒泡</p>
+            </div>    <br/>
+
+            <div class="mydivstyle" id="myDiv2">
+                <p id="myP2">点击段落，我是捕获</p>
+            </div>
+        </div>
+
+        
+        
+
+    </div>
+
+    <script>
+
+        function myFunction1() {
+            var x = document.getElementById("myBtn1");
+            x.addEventListener("click", function(){
+                alert("Hello, World");
+            });
+            // 第二个参数可以使用函数名，来引用外部函数
+            x.addEventListener("click", theAlertFunction);
+
+            
+        }
+
+        myFunction1();
+
+        function theAlertFunction() {
+            alert("Hello this is alert;");
+        }
+
+        function myFunction2() {
+            let x = document.getElementById("myBtn2");
+            x.addEventListener("mouseover", theMouseroverFunction);
+            x.addEventListener("click", theClickFunction);
+            x.addEventListener("mouseout", theMouseOutFunction);
+        }
+
+        function theMouseroverFunction() {
+            document.getElementById("demo2").innerHTML += "Moused Over! <br/>";
+        }
+
+        function theClickFunction() {
+            document.getElementById("demo2").innerHTML = "";
+        }
+
+        function theMouseOutFunction() {
+            document.getElementById("demo2").innerHTML += "Moused Out! <br/>";
+        }
+
+        myFunction2();
+
+        // window 对象添加事件句柄
+        function myFunction3() {
+            window.addEventListener("resize", function(){
+                document.getElementById("demo3").innerHTML = Math.random();
+            });
+        }
+
+        myFunction3();
+
+
+        // 当传递参数时，使用“匿名函数”调用带参数的函数
+        function myFunction4() {
+            let p1 = 5;
+            let p2 = 7;
+            document.getElementById("myBtn4").addEventListener("click", function(){
+                thePassParam(p1, p2);
+            });
+        }
+
+        function thePassParam(p1, p2) {
+            let result = p1 * p2;
+            document.getElementById("demo4").innerHTML = result;
+        }
+
+        myFunction4();
+
+        // 事件传递机制：冒泡、 捕获
+        function myFunction5() {
+            document.getElementById("myP1").addEventListener("click", function(){
+                alert("你点击了内部的 p 元素");
+            });
+
+            document.getElementById("myDiv1").addEventListener("click", function(){
+                alert("你点击了外部的 div 元素")
+            });
+
+            document.getElementById("myP2").addEventListener("click", function(){
+                alert("你点击了内部的 myP2 元素")
+            }, true);
+
+            document.getElementById("myDiv2").addEventListener("click", function(){
+                alert("你点击了外部的 myDiv2 元素")
+            }, true);
+        }
+
+        myFunction5();
+
+
+
+    </script>
+    
+</body>
+</html>

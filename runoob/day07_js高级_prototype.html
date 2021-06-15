@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js prototype原型</title>
+</head>
+<body>
+
+    <div>
+
+        <div>
+            <h2>js prototype (原型对象)</h2>
+            <p>所有的js对象都会从一个 prototype （原型对象）中继承属性和方法。</p>
+            <h2> prorotype 继承</h2>
+            <ul>
+                <li>Date 对象从 Date.prototype 继承属性和方法</li>            
+                <li>Array 对象从 Array.prototype 继承属性和方法</li>            
+                <li>Person 对象从 Person.prototype 继承属性和方法</li>            
+
+            </ul>
+            <p>所有的js对象都是位于原型链顶端的 Object 的实例</p>
+            <p> js对象有一个指向原型对象的链。</p>
+            <p>当试图访问一个对象的属性时，它不仅仅在该对象上搜寻，还会搜寻该对象的原型，以及该对象的原型的原型，依次层层向上搜索，直到找到一个名字匹配的属性或到达原型链的末尾</p>
+            <p>Date对象、Array对象、以及Person对象从Object.prototype 继承。</p>
+        </div>
+
+        <div>
+            <h3>添加新的属性</h3>
+            <p>使用prototype属性可以给对象的构造函数添加新的属性</p>
+        </div>
+
+        <div>
+            <h3>添加新的方法</h3>
+            <p>使用prototype给对象的构造函数添加新的方法<p>
+        </div>
+
+    </div>
+
+    <script>
+        function Person(first, last, age, eye) {
+            this.firstName = first;
+            this.lastName = last;
+            this.age = age;
+            this.eyeColor = eye;
+        }
+
+        Person.prototype.nationality = "English";
+
+        var myFriend = new Person("John", "Doe", 50, "blue");
+        console.log(myFriend); // Person {firstName: "John", lastName: "Doe", age: 50, eyeColor: "blue"}
+        console.log(myFriend.nationality); // English
+
+        // 使用prototype添加新的方法
+        Person.prototype.name = function() {
+            return this.firstName + " " + this.lastName;
+        };
+
+        console.log(myFriend.name());
+    </script>
+
+
+    
+</body>
+</html>

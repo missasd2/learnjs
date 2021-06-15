@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>操纵dom元素</title>
+</head>
+<body>
+
+    <div>
+        
+        
+        <div style="margin: 2px;">
+            <h2>操纵 DOM 元素</h2>
+            <p id="demo2">Hello World!</p>
+            <button type="button" onclick="myFunction1()">点击改变DOM元素</button>
+        </div>
+
+        <div style="margin: 2px;">
+            <h2>改变 HTML 属性</h2>
+            <p id="demo3"></p>
+            <button type="button" onclick="myFunction2()">点击换图</button>
+            <img id="pic1" src="https://static.veer.com/veer/static/resources/keyword/2020-02-19/b94a42fb11d64052ae5a9baa25f5370c.jpg">
+        </div>
+
+        <div style="margin: 2px;">
+            <h2>改变 CSS </h2>
+            <p id="demo4">Hello World!</p>
+            <p id="demo5">Hello World!</p>
+            <button type="button" onclick="myFunction3()">点击改变样式</button>
+        </div>
+
+        
+        
+
+    </div>
+
+    <script>
+        
+        function myFunction1() {
+            document.getElementById("demo2").innerHTML = "新文本 !";
+        }
+
+        function myFunction2() {
+            document.getElementById("pic1").src = "https://th.bing.com/th/id/R33674725d9ae34f86e3835ae30b20afe?rik=Pb3C9e5%2b%2b3a9Vw&riu=http%3a%2f%2fwww.desktx.com%2fd%2ffile%2fwallpaper%2fscenery%2f20180626%2f4c8157d07c14a30fd76f9bc110b1314e.jpg&ehk=9tpmnrrRNi0eBGq3CnhwvuU8PPmKuy1Yma0zL%2ba14T0%3d&risl=&pid=ImgRaw";
+        }
+        function myFunction3() {
+            document.getElementById("demo4").style.color = "blue";
+            document.getElementById("demo4").style.fontFamily = "Arial";
+            document.getElementById("demo4").style.fontSize = "larger";
+        }
+
+
+    </script>
+    
+</body>
+</html>

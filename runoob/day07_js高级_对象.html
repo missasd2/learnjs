@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js对象</title>
+</head>
+<body>
+
+    <div>
+        <div>
+            <h2>所有事务都是对象</h2>
+            <p>对象只是带有属性和方法的特殊数据类型</p>
+            <p>js对象就是一个 name:value 的集合</p>
+        </div>
+
+        <div>
+            <h2>创建对象的两种方法</h2>
+            <p>方法一：使用 Object 定义并创建对象的实例</p>
+            <p>方法二：使用函数来定义对象，然后创建新的对象实例</p>
+        </div>
+
+        <div>
+            <h2>使用对象构造器</h2>
+        </div>
+
+        <div>
+            <h2>js中不使用类，js是基于prototype</h2>
+        </div>
+    </div>
+
+    <script>
+        function myFunction1() {
+            var person = new Object(); // 使用构造函数创建对象
+            person.firstName = "John";
+            person.lastName = "Doe";
+            person.age = 50;
+            person.eyecolor = "blue";  // 以上，创建了对象的一个实例，并设置了四个属性
+            console.log(" person : " + person.firstName);
+        }
+
+        myFunction1();
+
+        // 使用对象构造器
+
+        function person(firstName, lastName, age, eyecolor) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+            this.eyecolor;
+
+            function changeName(name) { // 为对象添加方法
+                this.lastName = name;
+            }
+            //return this;
+        }
+
+        var myFriend1 = new person("John", "Doe", 50, "blue");
+        var myFriend2 = new person("Sally", "Rally", 48, "Green");
+        console.log(myFriend1);
+        console.log(myFriend2);
+        
+    </script>
+    
+</body>
+</html>

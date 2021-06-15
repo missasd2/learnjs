@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="mystyle.css">
+    <title>day08_Browser对象_Window对象</title>
+</head>
+<body>
+
+    <div>
+        <h3>Window对象</h3>
+        <ul>
+            <li id="win1" onclick="myFunction1()" ><a href="">弹出一个警告框</a></li>
+            <li id="win2" onclick="myFunction2()" ><a href="">弹出一个带折行的警告框</a></li>
+            <p id="p1"></p>
+            <li id="win3" onclick="myFunction3()" ><a href="">弹出一个确认框, 并提醒访客点击的内容</a></li>
+            
+            <li id="win4">弹出一个提示框<button type="button" onclick="myFunction4()">点击</button></li>
+            <p id="p2"></p>
+
+            <li id="win4">点击一个按钮时，弹出一个新窗口<button type="button" onclick="myFunction5()">点击打开百度</button></li>
+            <li id="win5">点击一个按钮时，弹出一个新窗口，并控制其外观<button type="button" onclick="myFunction6()">点击打开百度</button></li>
+            <li id="win6">打开新窗口，并确保其获得焦点<button type="button" onclick="myFunction7()">点击打开新窗口</button></li>
+            <li id="win7">关闭窗口<button type="button" onclick="myFunction8()">打开我的窗口</button> <button type="button" onclick="myFunction9()">关闭我的窗口"</button></li>
+
+            <li id="win8">检查新的窗口是否关闭<button type="button" onclick="myFunction10()">我的窗口被关闭了吗?</button></li>
+            <p id="msg"></p>
+
+            <li id="win9">返回新窗口的名字<button type="button" onclick="myFunction11()">返回打开窗口的名字</button></li>
+
+            <li id="win10">传输一些文本到源（父）窗口<button type="button" onclick="myFunction12()">点击传输文本到父窗口</button></li>
+
+            <li id="win11">相对于当前位置移动到新窗口<button type="button" onclick="myFunction13()">移动我的窗口</button></li>
+
+            <li id="win12" >移动新窗口到指定位置<button type="button" onclick="myFunction14()">移动我的窗口</button></li>
+
+            <li id="win13">打印当前页面<button type="button" onclick="myFunction15()">点击打印</button></li>
+
+            <li id="win14">设定窗口大小<button type="button" onclick="myFunction16()">设定窗口大小</button></li>
+
+            <li id="win15">滚动条<button type="button" onclick="myFunction17()">点击滚动到制定处</button></li>
+
+            <li id="win16">一个简单的时钟<button type="button" onclick="myFunction18()">显式文本时间!</button></li>
+
+            
+        </ul>
+    </div>
+
+    <script>
+        function myFunction1() {
+            alert("你好，我是一个警告框！");
+        }
+
+        function myFunction2() {
+            alert("Hello\nHow are you?");
+        }
+
+        
+
+        function myFunction3() {
+            var x;
+            var r = confirm("按下按钮!");
+            if(r == true) {
+                x = "你按下了\"确定\"按钮";
+            } else {
+                x = "你按下了\"取消\"按钮";
+            }
+            console.log(x);
+            document.getElementById("p1").innerHTML = x;
+        }
+
+        function myFunction4() {
+            var x;
+            var person = prompt("请输入你的名字", "Harry Potter");
+            if(person != null && person != "") {
+                x = "你好" + person + "! 今天感觉如何?";
+                document.getElementById("p2").innerHTML = x;
+            }
+        }
+
+        function myFunction5() {
+            window.open("https://www.baidu.com");
+        }
+
+        function myFunction6() {
+            window.open("https://www.baidu.com", "_blank", "toolbar=yes, location=yes, directories=no, staus=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, height=400, width=400")
+        }
+
+        // 打开新窗口，并获得焦点
+        function myFunction7() {
+            var myWindow = window.open('', '', 'width=200, height=100');
+            myWindow.document.write("<p>这是我的窗口</p>");
+            myWindow.focus();
+        }
+
+        // 关闭新窗口
+        var myWindow;
+        function myFunction8() {
+            myWindow = window.open("", "", "width=200, height=100");
+            myWindow.name = "新窗口";
+            myWindow.document.write("<p>这是'我的窗口'</p>");
+        }
+
+        function myFunction9() {
+            //console.log(myWindow);
+            myWindow.close();
+        }
+
+        // 判断窗口是否被关闭
+        function myFunction10() {
+            var msg = document.getElementById("msg");
+            if(!myWindow) {
+                msg.innerHTML = "我的窗口没有被打开";
+            }else {
+                if(myWindow.closed) {
+                    msg.innerHTML = "我的窗口被关闭";
+                } else {
+                    msg.innerHTML = "我的窗口没有被关闭!";
+                }
+            }
+        }
+
+        function myFunction11() {
+            console.log(myWindow.name);
+        }
+
+        // 点击传输文本到父窗口
+        function myFunction12() {
+            myWindow.document.write("<p>这是我的窗口</p>");
+            myWindow.focus();
+            myWindow.opener.document.write("<p>这个是源窗口</p>");
+        }
+
+        // 相对于当前位置移动到新窗口
+        function myFunction13() {
+            myWindow.document.write("<p>this is my window");
+            myWindow.moveBy(250, 250);
+            myWindow.focus();
+        }
+
+        // 移动新窗口到指定位置
+        function myFunction14() {
+            myWindow.document.write("<p>this is my window");
+            myWindow.moveTo(250, 250);
+            myWindow.focus();
+        }
+
+        // 打印页面
+        function myFunction15() {
+            window.print();
+        }
+
+        // 指定窗口大小
+        function myFunction16() {
+            myWindow.resizeTo(500, 500);
+            myWindow.focus();
+        }
+
+        // 滚动
+        function myFunction17(){
+            window.scrollBy(100, 100);
+        }
+
+        // 一个简单的时钟
+        function myFunction18() {
+            var x = 
+        }
+
+        
+
+    </script>
+    
+</body>
+</html>

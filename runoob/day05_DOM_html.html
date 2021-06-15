@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day05_dom_html</title>
+</head>
+<body>
+
+    <div>
+        <div>
+            <h2>HTML DOM(文档对象模型 documetnt object model)</h2>
+            <p>HTML DOM 模型被构造为<b>对象</b>的树</p>
+            <img src="https://www.runoob.com/images/pic_htmltree.gif">
+
+            <p>通过编程的对象模型，js获得了足够的能力来创建动态的HTML</p>
+            <ul>
+                <li> js 能够改变页面中的所有HTML元素</li>
+                <li> js 能够改变页面中的所有HTML元素的属性</li>
+                <li> js 能够改变页面中的所有CSS样式</li>
+                <li> js 能够对页面中的所有事件做出反应</li>
+            </ul>
+
+        </div>
+
+        <div style="margin: 2px;">
+            <h2>查找 HTML 元素</h2>
+            <p>有三种方式定位元素：</p>
+            <ul>
+                <li>通过 id  定位HTML元素</li>
+                <li>通过 tag名称  定位HTML元素</li>
+                <li>通过 class名称  定位HTML元素</li>
+            </ul>
+            <hr/>
+
+            <h3>通过标签名定位元素</h3>
+            <p>将被通过tag Name 定位的段落内容</p>
+
+            <p class="des">将被通过class Name 定位的段落内容 </p>
+        </div>
+        <hr/>
+
+        
+
+       
+    </div>
+
+ 
+    
+    <script>
+        var x = document.getElementsByTagName("p");
+        document.write("tag Name为p的第一个元素为: " + "<b>" + x[3].innerHTML + "</b>");
+        var y = document.getElementsByClassName("des");
+        document.write("<p>" + "class name 为 'demo' 的段落内容为: " + "<b>" + y[0].innerHTML + "</b>" + "</p>");
+
+    </script>
+</body>
+</html>

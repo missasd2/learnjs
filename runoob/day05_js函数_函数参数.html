@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dayo5_js函数_函数参数</title>
+</head>
+<body>
+
+    <div>
+
+        <div>
+            <h3>函数显式参数(Parameters)与隐式参数(Arguments)</h3>
+            <p>parameters 在函数定义时列出</p>
+            <p>arguments 在函数调用时传递给函数真正的值</p>
+
+        </div>
+
+        <div>
+            <h3>参数规则</h3>
+            <p>parameters 在定义时没有指定数据类型</p>
+            <p>arguments 对隐式参数没有进行类型检测</p>
+            <p>arguments 对隐式参数的个数没有进行检测</p>
+            
+        </div>
+
+        <div>
+            <h3>Arguments 对象</h3>
+            <p>js 有个内置的arguments 对象</p>
+            <p>arguments 包含了函数调用的参数数组</p>
+            
+            
+        </div>
+    </div>
+
+    <script>
+
+        // ES5中，函数在定义时如果未提供隐式参数，则参数会默认设置为: undefined。
+        function myFunction1(x, y) {
+            if (y == undefined) {
+                y = 0;
+            }
+            console.log(y);
+        }
+
+        myFunction1(1);  // 0
+
+        // ES6 函数可以自带参数
+        function myFunction2(x, y = 10) {
+            return x + y;
+        }
+
+        console.log(myFunction2(1, 2));
+        console.log(myFunction2(1));
+
+        // Arguments 对象
+        function findMax() {
+            let i, max = arguments[0];
+
+            if(arguments.length < 2) return max;
+
+            for(i = 0; i < arguments.length; i++) {
+                if(arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        console.log(findMax(1, 123, 500, 115, 44, 88));
+
+        // 通过值传递函数
+        // js中的隐式参数（arguments）通过值来传递；
+        
+
+    </script>
+    
+</body>
+</html>

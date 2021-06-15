@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="mystyle.css">
+    <title>js Number对象</title>
+</head>
+<body>
+
+    <div>
+        <div>
+            <h2>js 只有一种数字类型；</h2>
+            <h3>所有js数字均为64位</h3>
+            <p> js不定义不同类型的数字，不如整数、短、长、浮点等等。</p>
+            <p> js不区分浮点类型和整数类型；所有的数字都是浮点型</p>
+        </div>
+
+        <div>
+            <h3>精度</h3>
+            <p>不使用小数点和科学计数法的情况下，数字最多有15位。</p>
+        </div>
+
+        <div>
+            <h3>八进制和十六进制</h3>
+            <p>如果前缀为0, 比如 var y = 001; 则y被解释为八进制数，其对应十进制的值为8</p>
+            <p>如果前缀为0x, 比如 var z = 0x0F; 则y被解释为十六进制数，其对应十进制的值为15</p>
+
+        </div>
+
+        <div>
+            <h3>无穷大 (Infinity)</h3>
+            <p>当数字超出上下限，则结果为 Ifinity。</p>
+        </div>
+
+        <div>
+            <h3>NaN-非数字值</h3>
+            <p>NaN 与 undefined的区别</p>
+            <ul>
+                <li>(1) NaN 的类型为 number，undefined的类型为undefined
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div>
+            <h3>数字可以是Number类型如 var x = 123; 也可以是Object类型, 如 var y = new Number(123);</h3>
+            
+        </div>
+
+    </div>
+    
+    <script>
+        console.log(typeof 123); // number
+        console.log(typeof NaN); // number
+        console.log(typeof undefined); // undefined
+
+    </script>
+</body>
+</html>

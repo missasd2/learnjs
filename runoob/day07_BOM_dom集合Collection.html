@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" ref="stylesheet" href="mystyle.css">
+    <title>html dom collection</title>
+</head>
+<body>
+
+    <div>
+
+        <div>
+            <h2>DOM HTML Collection</h2>
+            <p>HTML Collection 对象类似于一个包含 HTML元素的数组列表</p>
+
+            <hr/>
+        </div>
+
+        <div>
+            <h2>属性和方法</h2>
+            <table>
+                <tr>
+                    <th>属性/方法</th>
+                    <th>描述</th>
+                </tr>
+                <tr>
+                    <td>item()</td>
+                    <td>返回HTML中指定 所以索引的元素</td>
+                </tr>
+                <tr>
+                    <td>length</td>
+                    <td>返回 HTML Collection 中元素的数量</td>
+                </tr>
+                <tr>
+                    <td>namedItem()</td>
+                    <td>返回 HTML Collection中指定ID 或 name 属性的元素</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <h2>实例</h2>
+            <p>使用getElementsByTagName() 方法获取 HTML Collection 对象；</p>
+        </div>
+        
+
+    </div>
+
+    <script>
+
+        function myFunction1() {
+            var x = document.getElementsByTagName("p"); // 获取所有p元素，返回值为一个 HTML Collection类型对象
+            console.log(typeof x);
+            console.log(x instanceof HTMLCollection); // true; 表明，确为 HTML Collection类型实例；
+            console.log(x);
+            console.log(x[0]);
+            console.log(x.length); // 2; 计算 HTML Collection中元素的数量
+            var len = x.length;
+            for(var i = 0; i < len; i++) {
+                console.log(x[i]);
+            }
+        }
+
+        myFunction1();
+
+
+    </script>
+    
+</body>
+</html>
