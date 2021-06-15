@@ -42,8 +42,22 @@
 
             <li id="win15">滚动条<button type="button" onclick="myFunction17()">点击滚动到制定处</button></li>
 
-            <li id="win16">一个简单的时钟<button type="button" onclick="myFunction18()">显式文本时间!</button></li>
+            <li id="win16">一个简单的时钟</li>
+            <p>点击下面的按钮，输出的文本将告诉你2秒，4秒，6秒已经过去了。</p>
+            <input type="button" value="显式文本时间!" onclick="myFunction18()">
+            <input type="text" id="txt1">
 
+            <li id="win17">用setTimeout() 和 clearTimeout()设置和停止定时器</li>
+            <form>
+                <input type="button" value="开始计数!" onclick="doTimer()">
+                <input type="text" id="txt2">
+                <input type="button" value="停止计数!" onclick="stopCount()">
+            </form>
+
+            <li id="win18">用setInterval()和 clearInterval() 设置和停止定时器</li>
+            <p>点击按钮，等待3秒会弹出“Hello”。</p>
+            <p>在弹出的对话框点击“确定”，3秒后会继续弹出。如此循环下去...</p>
+            <button type="button" onclick="myFunction18()">点击</button>
             
         </ul>
     </div>
@@ -165,7 +179,42 @@
 
         // 一个简单的时钟
         function myFunction18() {
-            var x = 
+            var x = document.getElementById("txt1");
+            var t1 = setTimeout(function(){x.value = "2秒"}, 2000);
+            var t2 = setTimeout(function(){x.value = "4秒"}, 4000);
+            var t3 = setTimeout(function(){x.value = "6秒"}, 6000);
+            var t4 = setTimeout(function(){x.value = ""}, 8000);
+        }
+
+
+
+        // 用setTimeout() 和 clearTimeout()设置和停止定时器
+        var c = 0;
+        var t = 0;
+        var timer_is_on = 0;
+
+        function timedCount() {
+            document.getElementById("txt2").value = c;
+            c = c + 1;
+            //t = setTimeout(function(){timedCount()}, 1000);
+            t = setTimeout(()=> timedCount(), 1000);
+        }
+
+        function doTimer() {
+            if(!timer_is_on) {
+                timer_is_on = 1;
+                timedCount();
+            }
+        }
+
+        function stopCount() {
+            clearTimeout(t);
+            timer_is_on = 0;
+        }
+
+        //
+        function myFunction18(){
+            setInterval(()=>{alert("Hello");}, 3000);
         }
 
         
